@@ -1,0 +1,39 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<div style="margin-left: 20px;">
+    <h3>My Listings</h3>
+</div>
+<div class="line" style="margin-right: 20px; margin-left: 20px; border-top: 1px solid #CCC;"></div>
+<br>
+<div id="listings" style="margin-left: 20px; margin-right: 20px;">
+{% if my_list%}
+    {% for item in my_list %}
+                <div class="card mb-3" style="max-width: 100%;">
+                    <div class="row no-gutters">
+                    <div class="col-md-4">
+                        {% if item.image %}
+                            <img src="{{ item.image }}" alt="" class="card-img" style="object-fit: cover; height: 320px; width: 430px;">
+                        {% else %}
+                            <img src="https://dapp.dblog.org/img/default.jpg" alt="" class="card-img" style="object-fit: cover; height: 320px; width: 430px;">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-8">
+                            <div class="card-body" style="padding-left: 50px;">
+                            <a href="{% url 'listing_page' item.id %}" class="card-title">{{ item.title }}</a>  
+                            <br>
+                            <br>                          
+                            <p class="card-text" style="font-weight:300;color:gray;">{{ item.description }}.</p>
+                            <p class="card-text" style="font-weight: bold;font-size:25px;">${{ item.price }}0</p>
+                            <p class="card-text"><small class="text-muted">Posted: {{item.time_posted}}</small></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        {% endfor %}
+{% else %}
+    <br><br>
+    <h4>You have No Listings!</h4>
+{% endif%}
+</div>
+{% endblock %}
