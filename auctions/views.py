@@ -130,15 +130,16 @@ def bid(request, listing_id):
             bid = float(request.POST.get("bid"))
             if bid <= curr_bid:
                 messages.error(request, 'Bid amount must be over the current bid amount of $' + str(curr_bid)+'0')
+                return HttpResponseRedirect(request.META['HTTP_REFERER'])
             else:
                 listing = Auction_listings.objects.get(pk=listing_id)# pylint: disable=maybe-no-member
                 listing.price = bid
                 messages.success(request, 'You now have the current bid!')
                 listing.watchlist.add(request.user)
                 listing.save()
+                return HttpResponseRedirect(request.META['HTTP_REFERER'])
         else:
             return HttpResponseRedirect(reverse("login"))
-
     return render(request, "auctions/listing_page.html", {
         "listing": listing
     })

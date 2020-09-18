@@ -8,9 +8,9 @@ class User(AbstractUser):
 
 class Auction_listings(models.Model):
     title = models.CharField(max_length=64)
-    description = models.CharField(max_length=164)
+    description = models.TextField()
     price = models.FloatField()
-    image = models.CharField(null=True, blank=True, max_length=100)
+    image = models.CharField(null=True, blank=True, max_length=165)
     time_posted = models.DateTimeField(auto_now_add=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     category = models.CharField(max_length=64, default=None, blank=True, null=True)
