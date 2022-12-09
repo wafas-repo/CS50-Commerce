@@ -3,7 +3,6 @@ astroid==2.4.2
 certifi==2020.6.20
 cffi==1.14.3
 click==7.1.2
-client==
 cryptography==3.1.1
 Django==3.0.8
 Flask==1.1.2
