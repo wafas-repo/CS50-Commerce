@@ -1,6 +1,6 @@
 # Commerce
 
-### [Live Demo](cs50-commerce-production.up.railway.app)
+### [Live Demo](https://cs50-commerce-production.up.railway.app/)
 
 #### 📝 Description
 CS50 Project 2 of Web Development with Python &amp; Javascript
