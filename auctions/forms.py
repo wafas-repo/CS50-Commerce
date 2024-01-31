@@ -3,13 +3,13 @@ from django import forms
 
 from .models import Auction_listings, Comment, Category
 
-
-CATEGORIES= Category.objects.all().values_list('name','name')# pylint: disable=maybe-no-member
-
-category_list = []
-
-for choice in CATEGORIES:
-    category_list.append(choice)
+def append_categories():
+    if(Category is not None):
+        CATEGORIES= Category.objects.all().values_list('name','name')# pylint: disable=maybe-no-member
+    category_list = []
+    for choice in CATEGORIES:
+        category_list.append(choice)
+    return category_list
 
 class CreateListingForm(forms.ModelForm):
     class Meta:
@@ -22,7 +22,7 @@ class CreateListingForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control', 'box-shadow':'4px 4px 10px'}),
             'price': forms.NumberInput(attrs={'class': 'form-control'}),
             'image': forms.TextInput(attrs={'class': 'form-control', 'padding': '10px','border-radius': '10px'}),
-            'category': forms.Select(choices=category_list, attrs={'class': 'form-control', 'padding': '10px','border-radius': '10px'}),
+            'category': forms.Select(choices=append_categories(), attrs={'class': 'form-control', 'padding': '10px','border-radius': '10px'}),
             'time_posted': forms.DateTimeField()
         }
 

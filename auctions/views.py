@@ -173,7 +173,6 @@ def close(request, listing_id):
 
 def category(request,category):
     category_listings = Auction_listings.objects.filter(category=category, active=True) # pylint: disable=maybe-no-member
-    print(category_listings)
     return render(request,"auctions/category.html",{
         "category_listings":category_listings,
         "cat":category,
