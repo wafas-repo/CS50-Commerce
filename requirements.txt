@@ -18,7 +18,6 @@ certifi==2020.6.20
 cffi==1.14.3
 charset-normalizer==2.1.1
 click==7.1.2
-client==0.0.1
 comm==0.1.4
 cryptography==3.1.1
 debugpy==1.8.0
