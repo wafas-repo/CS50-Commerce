@@ -1,6 +1,6 @@
 # Commerce
 
-### [Live Demo]([https://cs50-commerce-production.up.railway.app/](https://commerce-alpha-seven-39.vercel.app/))
+### [Live Demo](https://commerce-alpha-seven-39.vercel.app/)
 
 #### 📝 Description
 CS50 Project 2 of Web Development with Python &amp; Javascript
